@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/keony.schroer/.config/nvim'
+let g:netrw_dirhist_3='/home/keony.schroer/dev/rust/hecto'
+let g:netrw_dirhist_2='/home/keony.schroer/dev/rust/hecto/src'
+let g:netrw_dirhist_1='/home/keony.schroer/dev/rust/hecto'
