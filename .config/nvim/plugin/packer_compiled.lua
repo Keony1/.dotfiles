@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/keony.schroer/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/keony.schroer/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/keony.schroer/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",

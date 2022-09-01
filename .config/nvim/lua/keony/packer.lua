@@ -6,6 +6,9 @@ return require('packer').startup(function(use)
     use 'SirVer/ultisnips'
     use 'honza/vim-snippets'
 
+    -- telescope
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+
     -- theme
     use 'folke/tokyonight.nvim'
      -- statusbar
