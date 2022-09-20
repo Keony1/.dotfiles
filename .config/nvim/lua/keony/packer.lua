@@ -24,6 +24,8 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'
     use 'onsails/lspkind-nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use 'romgrk/nvim-treesitter-context'
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- rust stuff
     use 'simrat39/rust-tools.nvim'
