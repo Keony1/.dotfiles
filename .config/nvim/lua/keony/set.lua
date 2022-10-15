@@ -12,6 +12,7 @@ vim.opt.incsearch = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.opt.cursorline = true;
 
 -- netew configs
 vim.cmd([[
@@ -19,3 +20,5 @@ vim.cmd([[
     let g:netrw_altv = 1
     let g:netrw_winsize = 25
 ]])
+
+

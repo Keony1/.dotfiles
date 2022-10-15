@@ -2,9 +2,9 @@ return require('packer').startup(function(use)
     -- all things
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/plenary.nvim'
-    use 'jose-elias-alvarez/null-ls.nvim'
     use 'SirVer/ultisnips'
     use 'honza/vim-snippets'
+    use 'sbdchd/neoformat'
 
     -- telescope
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }

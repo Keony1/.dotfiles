@@ -99,15 +99,15 @@ _G.packer_plugins = {
     path = "/home/keony.schroer/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  neoformat = {
+    loaded = true,
+    path = "/home/keony.schroer/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
+  },
   neogit = {
     loaded = true,
     path = "/home/keony.schroer/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
-  },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "/home/keony.schroer/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
