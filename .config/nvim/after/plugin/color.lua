@@ -1,4 +1,16 @@
-require('feline').setup()
+-- local statusline = require('feline');
+local statusline = require('lualine');
+
+statusline.setup({
+    sections = {
+        lualine_c = {
+            {
+                'filename',
+                path = 1,
+            }
+        }
+    }
+})
 
 function ColorMyPencils(color)
     color = color or "tokyonight"
@@ -8,5 +20,5 @@ function ColorMyPencils(color)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-ColorMyPencils()
 
+ColorMyPencils('onedark')

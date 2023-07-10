@@ -10,8 +10,9 @@
 
 set $mod Mod1
 
-#colors
-set $lg_green #9CE66A
+#background
+exec --no-startup-id feh --bg-fill /home/keony.schroer/wallpaper/ds-remaster.jpg
+exec_always --no-startup-id "picom --config /home/keony.schroer/.config/picom/picom.conf"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -19,7 +20,8 @@ set $lg_green #9CE66A
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+
+font pango:Hack Nerd Font Mono 10
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -43,7 +45,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -144,16 +148,24 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
 # open automatically at workspaces
-assign [class ="Google-chrome"] $ws1 
+# assign [class ="Google-chrome"] $ws1 
+assign [class ="firefox"] $ws1 
 assign [class ="Slack"] $ws2
 assign [class ="teams-for-linux"] $ws2
 assign [class ="Prospect Mail"] $ws2 
-assign [class ="Gnome-terminal"] $ws3
+#assign [class ="Gnome-terminal"] $ws3
+assign [class ="Alacritty"] $ws3
 assign [class ="Evince"] $ws5
 # assign [class ="Insomnia"] $ws7
 assign [class ="Postman"] $ws7
 assign [class ="DBeaver"] $ws8
 for_window [class="Spotify"] move to workspace $ws10
+
+# exec on startup
+exec teams-for-linux
+exec slack
+exec prospect-mail 
+exec firefox
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -193,21 +205,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     # status_command i3status
-    font pango:DejaVu Sans Mono, FontAwesome 10
     status_command /home/keony.schroer/.config/i3status/i3status-rs /home/keony.schroer/.config/i3status/config.toml
+    font pango:Hack Nerd Font Mono, FontAwesome 10
    
-    tray_output eDP-1
-    colors {
-        # class            border   bg      text        
-        focused_workspace  $lg_green #285577 #ffffff
-    }
+    # tray_output eDP-1
+    tray_output HDMI-1
 }
-
-# colors of the container (client in i3 idiom)
-# class         top_brdr   backgr. text    indicator  child_border
-client.focused  $lg_green  #285577  #ffffff $lg_green   $lg_green 
-
-# bindsym $mod+BackSpace mode "$mode_system"
 
 # lock screen
 # bindsym $mod+Mod4+l exec i3lock
@@ -219,15 +222,9 @@ bindsym $mod+Ctrl+less move workspace to output left
 
 # screenshot
 bindsym --release Print exec gnome-screenshot -i
-bindsym --release Mod4+Shift+s exec $HOME/scripts/ssscripts.sh 
+bindsym --release Mod4+Shift+s exec $HOME/scripts/ssscripts.sh
+bindsym --release exec eval (ssh-agent -c)
 
-exec slack
-exec teams-for-linux
-exec prospect-mail 
-exec google-chrome
-exec gnome-terminal
-
-exec_always --no-startup-id "setxkbmap -layout us -variant intl"
 
 # gnome
 exec --no-startup-id /usr/lib/gsd-xsettings
@@ -244,8 +241,13 @@ workspace $ws1 output eDP-1
 workspace $ws2 output eDP-1
 workspace $ws3 output HDMI-1 
 
-# load ssh keys into ssh manager
-exec --no-startup-id $HOME/scripts/ssh-add-keys.sh
 
 # swap esc and capslock
 exec_always --no-startup-id setxkbmap -option caps:swapescape
+exec_always --no-startup-id setxkbmap -layout us -variant intl
+
+bindsym $mod+Mod4+k exec xrandr --output eDP-1 --off
+bindsym $mod+Mod4+l exec xrandr --output eDP-1 --left-of HDMI-1 --auto
+
+# dotfiles repo
+exec_always --no-startup-id alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

@@ -5,7 +5,6 @@ lsp.ensure_installed({
     'rust_analyzer',
     'tsserver',
     'eslint',
-    'omnisharp',
 })
 
 local cmp = require('cmp')
@@ -17,9 +16,16 @@ local cpm_mappings = lsp.defaults.cmp_mappings({
     ['<C-Space>'] = cmp.mapping.complete(),
 })
 
--- lsp.set_preferences({
---     sign_icons = {} 
--- })
+---- Fix Undefined global 'vim'
+lsp.configure('lua-language-server', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
 
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bfnr, remap = false}
@@ -39,3 +45,8 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})
+

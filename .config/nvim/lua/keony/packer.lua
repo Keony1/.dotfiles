@@ -8,11 +8,15 @@ return require('packer').startup(function(use)
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
 
     -- theme
-    use 'folke/tokyonight.nvim'
-     -- statusbar
-    use 'feline-nvim/feline.nvim'
+    use { 'monsonjeremy/onedark.nvim', branch = 'treesitter' }
+
+    -- statusbar
+    -- use 'freddiehaddad/feline.nvim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    }
     use 'lewis6991/gitsigns.nvim'
-    use 'kyazdani42/nvim-web-devicons'
 
    use {
        'VonHeikemen/lsp-zero.nvim',
@@ -47,4 +51,5 @@ return require('packer').startup(function(use)
 
    -- Git 
    use 'tpope/vim-fugitive'
+   use 'mbbill/undotree'
 end)
