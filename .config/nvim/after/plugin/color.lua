@@ -13,6 +13,7 @@ statusline.setup({
 })
 
 function ColorMyPencils(color)
+    -- onedark
     color = color or "tokyonight"
     vim.cmd.colorscheme(color)
 
@@ -21,4 +22,4 @@ function ColorMyPencils(color)
 end
 
 
-ColorMyPencils('onedark')
+ColorMyPencils()

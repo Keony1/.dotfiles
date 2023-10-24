@@ -1,6 +1,7 @@
 return require('packer').startup(function(use)
     -- all things
     use 'wbthomason/packer.nvim'
+
     use 'nvim-lua/plenary.nvim'
     use 'sbdchd/neoformat'
 
@@ -8,7 +9,8 @@ return require('packer').startup(function(use)
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
 
     -- theme
-    use { 'monsonjeremy/onedark.nvim', branch = 'treesitter' }
+    -- use { 'monsonjeremy/onedark.nvim', branch = 'treesitter' }
+    use { 'folke/tokyonight.nvim'}
 
     -- statusbar
     -- use 'freddiehaddad/feline.nvim'
