@@ -36,6 +36,9 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- java
+    use 'mfussenegger/nvim-jdtls'
+
     -- DAP (Debug Adapter Protocol)
 --    use {'mfussenegger/nvim-dap'}
 --    use {'theHamsta/nvim-dap-virtual-text'}
