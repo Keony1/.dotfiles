@@ -20,3 +20,6 @@ set -gx GPG_TTY (tty)
 # node
 nvm use 18 > /dev/null
 
+# java
+set --export JAVA_HOME (dirname (dirname (readlink -f (which java))))
+set -gx PATH $JAVA_HOME $PATH
