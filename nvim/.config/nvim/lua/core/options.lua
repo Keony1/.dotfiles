@@ -19,11 +19,3 @@ vim.opt.cursorline = true;
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
--- netew configs
---vim.cmd([[
---    let g:netrw_liststyle = 3
---    let g:netrw_altv = 1
---    let g:netrw_winsize = 25
---]])
-
-
