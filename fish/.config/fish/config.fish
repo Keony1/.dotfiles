@@ -18,7 +18,7 @@ fish_ssh_agent
 set -gx GPG_TTY (tty)
 
 # node
-nvm use 18 > /dev/null
+nvm use 20 > /dev/null
 
 # java
 set --export JAVA_HOME (dirname (dirname (readlink -f (which java))))
