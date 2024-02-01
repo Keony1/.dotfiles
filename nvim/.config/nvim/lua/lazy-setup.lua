@@ -12,10 +12,19 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	history = true,
+	region_check_events = "InsertEnter",
+	delete_check_events = "TextChanged,InserLeave",
 	spec = {
 		{
 			"LazyVim/LazyVim",
-			import = "lazyvim.plugins",
+			{ import = "lazyvim.plugins" },
+			{ import = "lazyvim.plugins.extras.lang.typescript" },
+			{ import = "lazyvim.plugins.extras.lang.java" },
+			{ import = "lazyvim.plugins.extras.test.core" },
+			{ import = "lazyvim.plugins.extras.dap.core" },
+			{ import = "lazyvim.plugins.extras.linting.eslint" },
+			{ import = "lazyvim.plugins.extras.formatting.prettier" },
 		},
 		{ import = "plugins" },
 		{ import = "plugins.lsp" },

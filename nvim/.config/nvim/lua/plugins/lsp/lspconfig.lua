@@ -2,8 +2,50 @@ return {
 	"neovim/nvim-lspconfig",
 	init = function()
 		local keys = require("lazyvim.plugins.lsp.keymaps").get()
-		keys[#keys + 1] = { "<leader>rn", vim.lsp.buf.rename, desc = "Rename", mode = { "n" } }
+		keys[#keys + 1] = { "<leader>rn", vim.lsp.buf.rename, desc = "[R]e[n]ame", mode = { "n" } }
 	end,
+	opts = {
+		inlay_hints = {
+			enabled = true,
+		},
+		servers = {
+			lua_ls = {
+				settings = {
+					Lua = {
+						hint = { enable = true },
+					},
+				},
+			},
+			tsserver = {
+				settings = {
+					typescript = {
+						inlayHints = {
+							includeInlayEnumMemberValueHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayParameterNameHints = "all",
+							includeInlayParameterNameHintsWhenArgumentMatchesName = true, -- false
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayVariableTypeHints = true,
+							includeInlayVariableTypeHintsWhenTypeMatchesName = true, -- false
+						},
+					},
+					javascript = {
+						inlayHints = {
+							includeInlayEnumMemberValueHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayParameterNameHints = "all",
+							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayVariableTypeHints = true,
+							includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+						},
+					},
+				},
+			},
+		},
+	},
 }
 
 -- Deixa o LazyVim lidar com o lsp
