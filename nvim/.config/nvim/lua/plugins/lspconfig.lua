@@ -82,7 +82,15 @@ return {
         lspconfig["clangd"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            cmd = { "clangd", "--background-index", "--clang-tidy" },
+            cmd = {
+                "clangd",
+                "--background-index",
+                "--clang-tidy",
+                "--header-insertion=iwyu",
+                "--completion-style=detailed",
+                "--function-arg-placeholders",
+                "--falback-style=llvm",
+            },
         })
 
         local luasnip = require("luasnip")
