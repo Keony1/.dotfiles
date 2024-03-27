@@ -2,7 +2,7 @@
         email = keony.schroer@gmail.com
         name = Keony Schröer
 [core]
-        editor = /usr/bin/nvim
+        editor = nvim
 [includeIf "gitdir:~/toro/"]
     path = ~/toro/.toro.gitconfig
 [alias]
