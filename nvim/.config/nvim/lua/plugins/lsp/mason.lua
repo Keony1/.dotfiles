@@ -16,7 +16,6 @@ return {
                     "clangd",
                     "tsserver",
                     "lua_ls",
-                    "jdtls",
                     "rust_analyzer",
                     "html",
                     "jsonls",

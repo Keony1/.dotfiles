@@ -3,12 +3,10 @@
         name = Keony Schröer
 [core]
         editor = nvim
-[includeIf "gitdir:~/toro/"]
-    path = ~/toro/.toro.gitconfig
 [alias]
 	co = checkout
 	st = status
 	last = log -1 HEAD
 	ci = commit -m
 [init]
-	defautBranch = main
+	defaultBranch = main
