@@ -1,12 +1,17 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
     event = { "BufReadPre", "BufNewFile" },
-    build = ":TSUpdate",
+	lazy = vim.fn.argc(-1) == 0,
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "windwp/nvim-ts-autotag",
     },
+	init = function(plugin)
+		require("nvim-treesitter.query_predicates")
+	end,
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     config = function()
       -- import nvim-treesitter plugin
       local treesitter = require("nvim-treesitter.configs")
@@ -34,11 +39,14 @@ return {
           "markdown_inline",
           "bash",
           "lua",
+		  "luadoc",
           "vim",
+		  "vimdoc",
+		  "php",
+		  "regex",
           "gitignore",
           "query",
           "rust",
-          "java",
           "git_rebase",
           "fish",
           "go",
