@@ -74,7 +74,7 @@ return {
             },
         })
 
-        lspconfig["tsserver"].setup({
+        lspconfig["ts_ls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
@@ -84,6 +84,27 @@ return {
             on_attach = on_attach,
             cmd = { "clangd", "--background-index", "--clang-tidy" },
         })
+
+        lspconfig["intelephense"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        --	lspconfig['dprint'].setup({
+        --		on_attach = on_attach,
+        --	})
+        --	--		-- format on save
+        --	vim.api.nvim_create_autocmd("BufWritePre", {
+        --		callback = function()
+        --			vim.lsp.buf.format { async = false }
+        --		end
+        --	})
+        vim.keymap.set(
+            "n",
+            "<leader>fmt",
+            "<cmd>lua vim.lsp.buf.format({ async = true })<CR>",
+            { noremap = true, silent = true }
+        )
 
         local luasnip = require("luasnip")
         local cmp = require("cmp")
