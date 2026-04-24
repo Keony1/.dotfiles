@@ -186,3 +186,21 @@ stow --adopt -vt ~ *
 | `]h / [h` | Next/prev git hunk |
 | `<leader>a` | Harpoon add file |
 | `Ctrl+e` | Harpoon menu |
+
+#### SFTP upload (auto-sync to remote on save)
+
+Reads `.vscode/sftp.json` from the project root — works for any project that has one.
+
+| Key | Action |
+|---|---|
+| `<leader>su` | Toggle auto-upload on save |
+| `<leader>sU` | Force-upload current file (bypasses toggle) |
+| `<leader>sl` | Open quickfix list of failed uploads |
+
+Statusline indicator (shown only inside an SFTP project):
+
+| State | Color |
+|---|---|
+| `󰅧 SFTP` | Green — enabled, idle |
+| `󰅧 ⠸` (spinner) | Blue — uploading |
+| `󰅧 SFTP off` | Orange — disabled |

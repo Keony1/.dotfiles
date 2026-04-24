@@ -12,7 +12,11 @@ return {
             },
             sections = {
                 lualine_a = { "mode" },
-                lualine_b = { "branch", "diff" },
+                lualine_b = { "branch", "diff", { SftpStatusline, color = function()
+                    if not _G.sftp_enabled then return { fg = "#f97316" } end
+                    if _G.sftp_uploading and _G.sftp_uploading > 0 then return { fg = "#38bdf8" } end
+                    return { fg = "#84cc16" }
+                end } },
                 lualine_c = { { "filename", path = 3 } },
                 lualine_x = {
                     {

@@ -17,6 +17,7 @@ return {
 				"lua_ls",
 				"html",
 				"jsonls",
+				"cssls",
 			},
 			automatic_installation = true,
 		})

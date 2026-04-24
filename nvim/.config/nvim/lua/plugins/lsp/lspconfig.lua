@@ -88,6 +88,12 @@ return {
 		})
 		vim.lsp.enable("clangd")
 
+		vim.lsp.config("cssls", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+		vim.lsp.enable("cssls")
+
 		vim.lsp.config("intelephense", {
 			capabilities = capabilities,
 			on_attach = on_attach,
