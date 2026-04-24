@@ -1,0 +1,11 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Keony Schröer"
+email = "keony@storii.com"
+
+[remotes.origin]
+auto-track-bookmarks = "keony/*"
+
+[ui]
+default-command = "log"
