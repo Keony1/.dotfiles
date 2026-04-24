@@ -48,8 +48,10 @@ alias gp="git push"
 alias gl="git log --oneline --graph"
 
 # fzf
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+zvm_after_init() {
+    [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+}
 
 # zoxide
 eval "$(zoxide init zsh)"
