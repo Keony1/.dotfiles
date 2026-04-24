@@ -114,7 +114,36 @@ Then open tmux and press `prefix + I` to install plugins:
 - `tmux-continuum` — auto-save sessions every 15 minutes
 - `tmux-yank` — clipboard integration
 
-### 10. Stow dotfiles
+### 10. Alacritty
+
+**Linux** — stow handles it automatically (step 11).
+
+**WSL2** — the config must live on the Windows side. Copy it manually:
+
+```bash
+mkdir -p /mnt/c/Users/<your-user>/AppData/Roaming/alacritty
+cp ~/.config/alacritty/alacritty.toml /mnt/c/Users/<your-user>/AppData/Roaming/alacritty/alacritty.toml
+```
+
+Then add the WSL-specific shell section at the top of that file:
+
+```toml
+[terminal.shell]
+program = "wsl.exe"
+args = ["-d", "Ubuntu", "--cd", "/home/<your-user>"]
+```
+
+Also restore the `Ctrl+6` binding for Neovim buffer switching (the control character must be written via script):
+
+```bash
+python3 -c "
+config = open('/mnt/c/Users/<your-user>/AppData/Roaming/alacritty/alacritty.toml').read().rstrip()
+binding = '\n\n[[keyboard.bindings]]\nkey = \"6\"\nmods = \"Control\"\nchars = \"' + '\\\\' + 'u001e\"\n'
+open('/mnt/c/Users/<your-user>/AppData/Roaming/alacritty/alacritty.toml', 'w').write(config + binding)
+"
+```
+
+### 11. Stow dotfiles
 
 ```bash
 cd ~/.dotfiles
