@@ -19,7 +19,7 @@ setopt SHARE_HISTORY
 # path
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
+export PATH="/opt/nvim/usr/bin:$PATH"
 
 # ssh agent
 eval "$(ssh-agent -s)" > /dev/null
@@ -54,8 +54,9 @@ alias gl="git log --oneline --graph"
 # zoxide
 eval "$(zoxide init zsh)"
 
-# nvm (lazy load)
+# nvm (lazy load, but node always in PATH)
 export NVM_DIR="$HOME/.nvm"
+export PATH="$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node 2>/dev/null | sort -V | tail -1)/bin:$PATH"
 nvm() {
     unset -f nvm node npm npx
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
