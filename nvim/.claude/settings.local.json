@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk find *)",
+      "Read(//home/keony/linked-web/**)"
+    ]
+  }
+}
